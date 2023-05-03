@@ -1,25 +1,13 @@
-const calculateTemp = () => {
-    const inputTemp = document.getElementById('temp').value;
+let celsius = document.getElementById("celsius");
+let fahrenheit = document.getElementById("fahrenheit");
 
-    const tempSelected = document.getElementById('temp_diff');
-    const valueTemp = temp_diff.options[tempSelected.selectedIndex].value;
+function celToFar() {
+    let output = (parseFloat(celsius.value) * 9 / 5) + 32;
+    fahrenheit.value = parseFloat(output.toFixed(2));
+}
 
-    // Celsius to Fahrenheit
-    const celToFah = (cel) => {
-        let fahrenheit = ((cel * 9 / 5) + 32).toFixed(1);
-        return fahrenheit;
-    }
-
-    // Fahrenheit to Celsius
-    const fahToCel = (fah) => {
-        let celsius = ((fah - 32) * 5 / 9).toFixed(1);
-        return celsius;
-    }
-
-    if (valueTemp == 'cel') {
-        document.getElementById("result").innerHTML = celToFah(inputTemp) + "&#176; Fahrenheit";
-    }
-    else {
-        document.getElementById("result").innerHTML = fahToCel(inputTemp) + "&#176; Celsius";
-    }
+function farToCel() {
+    let output = (parseFloat(fahrenheit.value) - 32) * 5 / 9;
+    celsius.value = parseFloat(output.toFixed(2));
+    console.log(output);
 }
